@@ -36,7 +36,7 @@ FINISH="%{$terminfo[sgr0]%}"
 #   gentoo_precmd —— 每次命令执行前更新 git_seg 和 VENV 变量
 # ============================================================================
 setopt PROMPT_SUBST
-PROMPT='%F{cyan}%D{%H:%M}%f %K{green}%F{0} %n@%m %f%k%K{236}%F{0} %~ %f%k${git_seg:+ $git_seg}
+PROMPT='%F{cyan}%D{%H:%M}%f %K{green}%F{15} %n@%m %f%k%K{236}%F{15} %~ %f%k${git_seg:+ $git_seg}
 ${VENV}%(?.%F{green}.%F{red})%(!.#.$)%f '
 
 gentoo_precmd() {
@@ -49,9 +49,9 @@ gentoo_precmd() {
     branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
     if [[ -n "$branch" ]]; then
       if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-        git_seg="%F{blue}git:(%F{cyan}${branch}%F{red} ✚%F{blue})%f"
+        git_seg="%F{blue}git:(%F{15}${branch}%F{red} ✚%F{blue})%f"
       else
-        git_seg="%F{blue}git:(%F{cyan}${branch}%F{green} ✔%F{blue})%f"
+        git_seg="%F{blue}git:(%F{15}${branch}%F{green} ✔%F{blue})%f"
       fi
     fi
   fi
