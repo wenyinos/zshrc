@@ -572,4 +572,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # ============================================================================
 export PATH="$HOME/cc-haha/bin:$PATH"
 
-export PATH="/home/zemi/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
